@@ -33,6 +33,7 @@ function DBRead($table, $params = null, $fields = '*'){
   }
 }
 
+// Atualiza Registros
 function DBUpdate($table, array $data, $where = null){
   foreach($data as $key => $value){
     $fields[] = "{$key} = '{$value}'";
@@ -43,5 +44,12 @@ function DBUpdate($table, array $data, $where = null){
   $where = $where ? $where = " where {$where}" : null;
 
   $query = "Update {$table} set {$fields}{$where}";
+  return DBExecute($query);
+}
+
+// Delete Registros
+function DBDelete($table, $where = null){
+  $where = $where ? $where = " where {$where}" : null;
+  $query = "Delete from {$table} {$where}";
   return DBExecute($query);
 }

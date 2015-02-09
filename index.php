@@ -19,10 +19,17 @@ require_once('database.php');
 // $grava = DBCreate('clientes',$cliente);
 // $clientes = DBRead('clientes', null, 'nome,email');
 
-$cliente = array(
-  'nome' => "João"
-  );
-var_dump(DBUpdate('clientes', $cliente, 'id = 2'));
+// $cliente = array(
+//   'nome' => "João"
+//   );
+// var_dump(DBUpdate('clientes', $cliente, 'id = 2'));
+
+$dropCliente = DBDelete('clientes', 'id = 3');
+if ($dropCliente) {
+  echo "OK";
+}else{
+  echo "Não";
+}
 
 
 ?>
