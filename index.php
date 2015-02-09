@@ -8,12 +8,10 @@
 <?php
 require_once('config.php');
 require_once('connection.php');
+require_once('database.php');
 
-// Abre Conexão
-$conexao = DBConnect();
-
-// Fecha Conexão
-DBClose($conexao);
+$query = "insert into clientes (nome) values ('Danilo')";
+var_dump(DBExecute($query));
 
 ?>
 </body>
