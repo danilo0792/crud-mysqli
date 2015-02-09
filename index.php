@@ -16,11 +16,13 @@ require_once('database.php');
 //   'idade'   => 22,
 //   'status'  => 1
 //   );
-
 // $grava = DBCreate('clientes',$cliente);
+// $clientes = DBRead('clientes', null, 'nome,email');
 
-$clientes = DBRead('clientes', null, 'nome,email');
-var_dump($clientes);
+$cliente = array(
+  'nome' => "João"
+  );
+var_dump(DBUpdate('clientes', $cliente, 'id = 2'));
 
 
 ?>

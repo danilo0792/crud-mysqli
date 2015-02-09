@@ -32,3 +32,16 @@ function DBRead($table, $params = null, $fields = '*'){
     return $clientes;
   }
 }
+
+function DBUpdate($table, array $data, $where = null){
+  foreach($data as $key => $value){
+    $fields[] = "{$key} = '{$value}'";
+  }
+
+  $fields = implode(', ', $fields);
+
+  $where = $where ? $where = " where {$where}" : null;
+
+  $query = "Update {$table} set {$fields}{$where}";
+  return DBExecute($query);
+}
